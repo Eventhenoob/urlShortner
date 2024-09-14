@@ -16,14 +16,13 @@ app.get("/:shortId", async (req, res) => {
             visitHistory: { timestamp: Date.now() },
         }
     })
-
-    if (foundUrl) return res.redirect(foundUrl.redirectUrl)
-
-    return res.status(404).json({ message: "Invalid shortId provided" })
+    
+    if (foundUrl) return res.redirect(foundUrl.redirectUrl);
+    else res.status(404).json({ message: "Invalid shortId provided" });
 })
 connectDb();
 app.listen(port, () => {
-    console.log("hello from the server")
+    console.log("hello from the server");
 })
 
 

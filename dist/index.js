@@ -31,7 +31,8 @@ app.get("/:shortId", (req, res) => __awaiter(void 0, void 0, void 0, function* (
     });
     if (foundUrl)
         return res.redirect(foundUrl.redirectUrl);
-    return res.status(404).json({ message: "Invalid shortId provided" });
+    else
+        res.status(404).json({ message: "Invalid shortId provided" });
 }));
 (0, connect_1.connectDb)();
 app.listen(port, () => {
